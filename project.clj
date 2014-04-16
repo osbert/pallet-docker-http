@@ -1,4 +1,4 @@
-(defproject pallet-docker-http "0.1.0-SNAPSHOT"
+(defproject osbert/pallet-docker-http "0.1.0-SNAPSHOT"
   :description "Library to help with deploying HTTP services in a Docker container."
   :url "http://github.com/osbert/pallet-docker-http"
   :license {:name "Eclipse Public License"
