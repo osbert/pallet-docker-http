@@ -67,7 +67,7 @@ a suitable apache config file as a string is returned.
   "Phase-fn to ask apache to proxy requests to a new IP address and reload apache2.
 
 This should effectively act a zero-downtime deploy."
-  [session service-name config port]
+  [service-name config port session]
   (-> session
       (rf/with-remote-file
         (action/as-clj-action

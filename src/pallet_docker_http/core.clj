@@ -53,7 +53,7 @@
   [container-prefix]
   (format "docker ps | grep %s | cut -f 1 -d ' ' | head -n 1 > /tmp/%s.container" container-prefix container-prefix))
 
-(defn stop-old-container [session service-name]
+(defn stop-old-container [service-name session]
   (-> session
       (rf/with-remote-file
         (action/as-clj-action
@@ -71,7 +71,7 @@
                                                             [(keyword service-name) :running-container]
                                                             nil))))))
 
-(defn start-new-container [session service-name docker-image-name port]
+(defn start-new-container [service-name docker-image-name port session]
   (let [cname (container-name service-name)]
     (-> session
         (exec-script* (find-existing-container service-name))
